@@ -2,12 +2,12 @@ CREATE SCHEMA `app`;
 
 Use app;
 
-CREATE TABLE IF NOT EXISTS author (
-author_id INT AUTO_INCREMENT,
+CREATE TABLE IF NOT EXISTS artist (
+artist_id INT AUTO_INCREMENT,
 first_name VARCHAR(50) NOT NULL,
 last_name VARCHAR(50) NOT NULL,
 date_of_birth DATE,
-PRIMARY KEY (author_id)
+PRIMARY KEY (artist_id)
 );
 
 CREATE TABLE IF NOT EXISTS genre (
@@ -22,10 +22,10 @@ title VARCHAR(50) NOT NULL,
 duration VARCHAR(50),
 is_explicit BOOL NULL DEFAULT FALSE,
 cloud_link VARCHAR(255) NULL,
-author_id INT NOT NULL,
+artist_id INT NOT NULL,
 genre_id INT NOT NULL,
 PRIMARY KEY (song_id),
-FOREIGN KEY (author_id) REFERENCES author(author_id),
+FOREIGN KEY (artist_id) REFERENCES artist(artist_id),
 FOREIGN KEY (genre_id) REFERENCES genre(genre_id)
 );
 
